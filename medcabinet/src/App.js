@@ -3,6 +3,7 @@ import {Route, Switch} from 'react-router-dom'
 import initialValues from './components/formValues'
 import Header from './components/header'
 import Registration from './components/register'
+import Login from './components/login'
 import formSchema from './validation/formSchema'
 import './App.css';
 import { useState, useEffect } from 'react';
@@ -52,6 +53,10 @@ function App() {
       <Switch>
         <Route path='/register'>
           <Registration values={registerVals} onInputChange={onInputChange} errors={registerErrs} disabled={disabled}/>
+        </Route>
+
+        <Route path='/login'>
+          <Login/>
         </Route>
 
       </Switch>
