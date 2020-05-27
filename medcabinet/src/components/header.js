@@ -1,43 +1,15 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import styled from 'styled-components'
-
-const StyledHeader = styled.header`
-    border-bottom: 2px solid #29E05B;
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    background: white;
-
-    img{
-        width: 25%;
-        height: auto;
-        margin: 2%;
-    }
-
-    .headerLinks{
-        margin: 2%;
-        width: 25%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        a{
-        text-decoration: none;
-        color: #34CC5C;
-        font-size: 2.5rem;
-    }
-    }
-   
-`
+import StyledHeader from '../styled-components/styledHeader.js'
 
 function Header(props) {
     return (
         <StyledHeader>
-            <img src={require('../logo.png')}/>
+            <img className='logo' src={require('../images/logo.png')}/>
             <div className='headerLinks'>
-                <Link to='/login'>login</Link>
+                <Link to='/strains'>strains</Link>
                 <Link to='/register'>register</Link>
+                <Link to='/login'>login</Link>
             </div>
         </StyledHeader>
     )

@@ -3,6 +3,11 @@ const initialValues = {
         email: '',
         username: '',
         password: ''
+    },
+    filterForm: {
+        category: '',
+        type: '',
+        medicinal: ''
     }
 }
 

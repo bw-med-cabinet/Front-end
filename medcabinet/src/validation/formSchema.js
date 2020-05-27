@@ -10,7 +10,10 @@ const formSchema = yup.object().shape({
       .required('The username is a required field'),
     password: yup.string()
       .min(7, 'Your password must be at least seven characters long')
-      .required('The password is a required field')
+      .required('The password is a required field'),
+    category: yup.string(),
+    type: yup.string(),
+    medicinal: yup.string()
 })
 
 export default formSchema
