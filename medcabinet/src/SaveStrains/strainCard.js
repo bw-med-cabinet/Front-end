@@ -11,7 +11,7 @@ const strainCard = props => {
       <div className="strain_effects">
         Strain Effects: <strong>{strain_effects}</strong>
       </div>
-      <div className="strain_effects">
+      <div className="strain_type">
         Strain Type: <strong>{strain_type}</strong>
       </div>>
 
