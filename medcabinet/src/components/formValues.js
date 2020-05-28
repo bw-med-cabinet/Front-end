@@ -8,6 +8,10 @@ const initialValues = {
         category: '',
         type: '',
         medicinal: ''
+    },
+    userForm: {
+        username: '',
+        password: ''
     }
 }
 

@@ -7,11 +7,17 @@ const StyledHeader = styled.header`
     align-content: center;
     background: white;
 
-    .logo {
+    a{
         width: 25%;
         height: auto;
         margin: 2%;
+
+        .logo{
+            width: 100%;
+            
         }
+    }
+
     
 
     .headerLinks{

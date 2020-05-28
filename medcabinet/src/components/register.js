@@ -4,8 +4,21 @@ import StyledForm from '../styled-components/styled-form'
 
 
 
+
+
 function Registration (props) {
     const {values, onInputChange, errors, disabled} = props
+
+    const onRegister = evt => {
+        evt.preventDefault();
+        const newUser = {
+            username: values.username,
+            email: values.email,
+            password: values.password
+        }
+
+        
+    }
     return(
         <StyledForm>
             <div>

@@ -1,18 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react'
 import {Route, Switch} from 'react-router-dom'
-import initialValues from './components/formValues'
+import axios from 'axios'
+import * as yup from 'yup'
 import Header from './components/header'
+import Dashbaord from './components/dashboard'
 import Registration from './components/register'
 import Login from './components/login'
 import formSchema from './validation/formSchema'
 import CardContainer from './components/strainCardContainer'
+import SavedList from './components/savedList'
 import dummyData from './dummyData'
-import StrainCard from './components/strainCard'
-import strainFilterForm from './components/strainFilter'
+import initialValues from './components/formValues'
 import './App.css';
-import { useState, useEffect } from 'react';
-import * as yup from 'yup'
-import StrainFilterForm from './components/strainFilter';
 
 function App() {
   const [registerVals, setRegisterVals] = useState(initialValues.registration)
@@ -20,6 +19,12 @@ function App() {
   const [disabled, setDisabled] = useState(true)
   const [strains, setStrains] = useState(dummyData)
   const [filterVals, setFilterVals] = useState(initialValues.filterForm)
+  const [loginVals, setLoginVals] = useState(initialValues.userForm)
+  const [savedList, setSavedList] = useState([])
+
+  const addToSavedList = strains => {
+    setSavedList([...savedList, strains])
+  }
 
   const onInputChange = evt => {
     const name = evt.target.name
@@ -45,12 +50,30 @@ function App() {
       [name]: value
     })
 
+    setLoginVals({
+      ...loginVals,
+      [name]: value
+    })
+
     setFilterVals({
       ...filterVals,
       [name]: value
     })
 
   }
+
+  const addUser = newUser => {
+    axios.post('https://marijuana-api.herokuapp.com/api/auth/register', newUser)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+          debugger
+      })
+      .finally(() => {
+          setRegisterVals(initialValues.userForm)
+      })
+    }
 
   useEffect(() => {
     formSchema.isValid(registerVals)
@@ -60,16 +83,23 @@ function App() {
   }, [registerVals])
 
   useEffect(() => {
+    let type = document.getElementById('type')
+    let medicinal = document.getElementById('medicinal')
+
+    if (!type && !medicinal){
+      return 
+    }else{
     if(filterVals.category === 'type'){
-    document.getElementById('type').classList.remove('hidden')
-    document.getElementById('medicinal').classList.add('hidden')
+      type.classList.remove('hidden')
+      medicinal.classList.add('hidden')
     } else if (filterVals.category === 'medicinal'){
-    document.getElementById('medicinal').classList.remove('hidden')
-    document.getElementById('type').classList.add('hidden')
+      medicinal.classList.remove('hidden')
+      type.classList.add('hidden')
     } else if (!filterVals.category){
-    document.getElementById('type').classList.add('hidden')
-    document.getElementById('medicinal').classList.add('hidden')
+      type.classList.add('hidden')
+      medicinal.classList.add('hidden')
     }
+  }
   },[filterVals.category])
 
 
@@ -79,23 +109,26 @@ function App() {
       <Header/>
 
       <Switch>
+
+        <Route exact path='/'>
+          <Dashbaord savedList={savedList} strains={strains}/>
+        </Route>
+
         <Route path='/register'>
-          <Registration values={registerVals} onInputChange={onInputChange} errors={registerErrs} disabled={disabled}/>
+          <Registration values={registerVals} onInputChange={onInputChange} errors={registerErrs} disabled={disabled} addUser={addUser}/>
         </Route>
 
         <Route path='/login'>
-          <Login/>
+          <Login values={loginVals}/>
         </Route>
 
         <Route path='/strains'>
-          <StrainFilterForm values={filterVals} onInputChange={onInputChange}/>
-          <CardContainer strains={strains} setStrains={setStrains} filterVals={filterVals}/>
+          <CardContainer strains={strains} setStrains={setStrains} filterVals={filterVals} onInputChange={onInputChange} addToSavedList={addToSavedList}/>
         </Route>
-
 
       </Switch>
     </div>
   );
 }
 
-export default App;
+export default App

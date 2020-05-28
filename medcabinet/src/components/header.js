@@ -5,7 +5,7 @@ import StyledHeader from '../styled-components/styledHeader.js'
 function Header(props) {
     return (
         <StyledHeader>
-            <img className='logo' src={require('../images/logo.png')}/>
+            <Link to='/'><img className='logo' src={require('../images/logo.png')}/></Link>
             <div className='headerLinks'>
                 <Link to='/strains'>strains</Link>
                 <Link to='/register'>register</Link>

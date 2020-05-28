@@ -17,6 +17,7 @@ const FlexDiv = styled.div`
         display: flex;
         flex-direction: row;
         flex-flow: wrap;
+        justify-content: space-around;
     }
 `
 

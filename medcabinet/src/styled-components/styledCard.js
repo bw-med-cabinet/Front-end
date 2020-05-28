@@ -5,7 +5,7 @@ const StyledCard = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 25%;
+    width: 20%;
     text-align: center;
     background: #29E05B;
     border:1px solid #34CC5C;
@@ -22,8 +22,20 @@ const StyledCard = styled.div`
     img{
         width: 100%;
         margin: 0;
-        border-radius: 0 0 9px 9px;
-        margin-bottom: -1px;
+    }
+    p{
+        font-size:1.4rem;
+        color: #042c0f;
+        background: #ecfff1;
+        margin: 0 1%;
+        border-radius: 0 0 10px 10px
+    }
+    .save{
+        font-size: 1.8rem;
+        width: 70%;
+        &:hover{
+            cursor: pointer;
+        }
     }
 `
 

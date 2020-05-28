@@ -1,5 +1,5 @@
 import React from 'react'
-
+import FilterForm from '../styled-components/filterForm'
 
 
 function StrainFilterForm(props){
@@ -7,7 +7,7 @@ function StrainFilterForm(props){
  
 
     return (
-        <form>
+        <FilterForm>
             <label>
                 Filter By:
                 <select 
@@ -31,7 +31,7 @@ function StrainFilterForm(props){
                     <option value='Sativa'>Sativa</option>
                     <option value='Indica'>Indica</option>
                     <option value='Hybrid'>Hybrid</option>
-                    <option value='cbd'>CBD</option>
+                    <option value='CBD'>CBD</option>
                 </select>
             </label>
 
@@ -42,10 +42,14 @@ function StrainFilterForm(props){
                     value={values.medicinal}
                     onChange={onInputChange}
                 >
-                    <option>--Select an option--</option>
+                    <option value=''>--Select an option--</option>
+                    <option value='ailment_1'>Insomnia</option>
+                    <option value='ailment_2'>Anxiety</option>
+                    <option value='ailment_3'>Pain Management</option>
+                    <option value='ailment_4'>Appetite Stimulation</option>
                 </select>
             </label>
-        </form>
+        </FilterForm>
     )
 }
 
