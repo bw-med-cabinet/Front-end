@@ -1,9 +1,51 @@
 import styled from 'styled-components'
 
-const StyledForm = styled.form`
+const StyledForm = styled.div`
     padding: 2% 0;
+    border: 1px solid #34CC5C;
+    border-radius: 10px;
+    width: 50%;
+    margin: 5% 25%;
+    text-align: center;
+    background: white;
 
-    div{
+    h1, h2{
+        font-size: 2.5rem;
+        color: #34CC5C;
+    }
+
+    p{
+        color: #34CC5C;
+        font-size: 1.6rem;
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        input{
+            border: 1px solid #29E05B;
+            color: #34CC5C;
+            margin: 1% 0;
+        }
+
+        button{
+            background: #34CC5C;
+            color: white;
+            border: 1px solid #34CC5C;
+            border-radius: 5px;
+            margin: 4%;
+            /* padding: 1%; */
+            font-size: 1.5rem;
+        }
+    }
+
+    
+    /*  */
+
+    /* div{
         background: white;
         display: flex;
         flex-direction: column;
@@ -46,21 +88,8 @@ const StyledForm = styled.form`
 
         
         }
-        button{
-            background: #34CC5C;
-            color: white;
-            border: 1px solid #34CC5C;
-            border-radius: 5px;
-            margin: 4%;
-            padding: 1%;
-            font-size: 1.5rem;
-
-            &:disabled{
-                opacity: 40%;
-                cursor: not-allowed;
-            }
-        }
-    }
+        
+    } */
 `
 
 export default StyledForm

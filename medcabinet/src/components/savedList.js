@@ -15,12 +15,12 @@ export default class SavedList extends Component {
         {this.props.list.map(strain => {
           return (
             <NavLink
-              to={`/strains/${strain.strain_id}`}
-              key={strain.strain_id}
+              to={`/strains/${strain.id}`}
+              key={strain.id}
               activeClassName="saved-active"
             >
                 {/* <span className="saved-strain">{strain.strain_name}</span> */}
-                <StrainCard strain={strain} key={strain.strain_id}/>
+                <StrainCard strain={strain} key={strain.id}/>
             </NavLink>
           );
         })}

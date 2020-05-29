@@ -14,13 +14,13 @@ function CardContainer(props){
             }else if (filterVals.category === 'type'){
                 if(!filterVals.type){
                     return strain
-                } else if (strain.strain_type === filterVals.type){
+                } else if (strain.type.toLowerCase() === filterVals.type){
                     return strain
                 }
             }else if (filterVals.category === 'medicinal'){
                 if(!filterVals.medicinal){
                     return strain
-                } else if (strain.recommended_for === filterVals.medicinal){
+                } else if (strain.recommended_for.toLowerCase() === filterVals.medicinal){
                     return strain
                 }
             }

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const strainCard = props => {
-  const { strain_name, flavor_profile, strain_efects, strain_type } = props.strain;
+  const { strain, flavor_profile, efects, type } = props.strain;
   return (
     <div className="strain-card">
       <h2>{title}</h2>
@@ -9,10 +9,10 @@ const strainCard = props => {
         Flavor Profile: <em>{flavor_profile}</em>
       </div>
       <div className="strain_effects">
-        Strain Effects: <strong>{strain_effects}</strong>
+        Strain Effects: <strong>{effects}</strong>
       </div>
       <div className="strain_effects">
-        Strain Type: <strong>{strain_type}</strong>
+        Strain Type: <strong>{type}</strong>
       </div>>
 
     </div>

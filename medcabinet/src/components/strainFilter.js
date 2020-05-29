@@ -28,10 +28,10 @@ function StrainFilterForm(props){
                     onChange={onInputChange}
                 >
                     <option value=''>--Select a Type--</option>
-                    <option value='Sativa'>Sativa</option>
-                    <option value='Indica'>Indica</option>
-                    <option value='Hybrid'>Hybrid</option>
-                    <option value='CBD'>CBD</option>
+                    <option value='sativa'>Sativa</option>
+                    <option value='indica'>Indica</option>
+                    <option value='hybrid'>Hybrid</option>
+                    <option value='cbd'>CBD</option>
                 </select>
             </label>
 

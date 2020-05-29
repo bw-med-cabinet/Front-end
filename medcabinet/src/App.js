@@ -17,7 +17,7 @@ function App() {
   const [registerVals, setRegisterVals] = useState(initialValues.registration)
   const [registerErrs, setRegisterErrs] = useState(initialValues.registration)
   const [disabled, setDisabled] = useState(true)
-  const [strains, setStrains] = useState(dummyData)
+  const [strains, setStrains] = useState([])
   const [filterVals, setFilterVals] = useState(initialValues.filterForm)
   const [loginVals, setLoginVals] = useState(initialValues.userForm)
   const [savedList, setSavedList] = useState([])
@@ -62,6 +62,17 @@ function App() {
 
   }
 
+  const getStrains = ()=>{
+    axios.get('https://marijuana-api.herokuapp.com/api/strains')
+      .then(res=>{
+        setStrains(res.data)
+        console.log(res.data)
+      })
+      .catch(err=>{
+        debugger
+      })
+  }
+
   const addUser = newUser => {
     axios.post('https://marijuana-api.herokuapp.com/api/auth/register', newUser)
       .then(res => {
@@ -102,7 +113,9 @@ function App() {
   }
   },[filterVals.category])
 
-
+  useEffect(()=>{
+    getStrains()
+  },[])
   
   return (
     <div>
