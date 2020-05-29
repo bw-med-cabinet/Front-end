@@ -17,7 +17,7 @@ function App() {
   const [registerVals, setRegisterVals] = useState(initialValues.registration)
   const [registerErrs, setRegisterErrs] = useState(initialValues.registration)
   const [disabled, setDisabled] = useState(true)
-  const [strains, setStrains] = useState([])
+  const [strains, setStrains] = useState(dummyData)
   const [filterVals, setFilterVals] = useState(initialValues.filterForm)
   const [loginVals, setLoginVals] = useState(initialValues.userForm)
   const [savedList, setSavedList] = useState([])
@@ -113,9 +113,9 @@ function App() {
   }
   },[filterVals.category])
 
-  useEffect(()=>{
-    getStrains()
-  },[])
+  // useEffect(()=>{
+  //   getStrains()
+  // },[])
   
   return (
     <div>
